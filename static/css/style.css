@@ -1,0 +1,594 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    
+
+background:
+
+linear-gradient(
+
+rgba(0,0,0,.45),
+
+rgba(0,0,0,.45)
+
+),
+
+url("../images/forest-bg.jpg");
+}
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+
+    background:rgba(0,0,0,.45);
+}
+
+.glass-card{
+
+    width:100%;
+    max-width:900px;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    color:white;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+    animation:fadeUp .8s ease;
+
+}
+
+.tag{
+
+    display:inline-block;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+}
+
+.glass-card h1{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+}
+
+.glass-card p{
+
+    font-size:19px;
+
+    margin-bottom:40px;
+
+    line-height:1.8;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.full-width{
+
+    grid-column:1/3;
+
+}
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+
+}
+
+.input-group label{
+
+    margin-bottom:8px;
+
+    font-weight:500;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.input-group input:focus{
+
+    box-shadow:0 0 15px rgba(76,175,80,.7);
+
+}
+
+.btn{
+
+    width:100%;
+
+    margin-top:35px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#1B5E20;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:#2E7D32;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.3);
+
+}
+
+.result-card{
+
+    margin-top:35px;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.result-card h2{
+
+    margin-bottom:10px;
+
+}
+
+.result-card h1{
+
+    color:#90EE90;
+
+    font-size:60px;
+
+}
+
+.error-card{
+
+    margin-top:30px;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    background:#c62828;
+
+    color:white;
+
+    font-weight:500;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .glass-card{
+
+        padding:30px;
+
+    }
+
+    .glass-card h1{
+
+        font-size:34px;
+
+    }
+
+    .glass-card p{
+
+        font-size:16px;
+
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full-width{
+
+        grid-column:auto;
+
+    }
+
+    .feature-row{
+
+    flex-direction:column;
+
+    gap:8px;
+
+    }
+    .info-section{
+
+    grid-template-columns:1fr;
+
+    }
+}
+.risk-badge{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.12);
+
+    font-weight:600;
+
+    font-size:18px;
+
+}
+
+.recommendation{
+
+    margin-top:20px;
+
+    line-height:1.7;
+
+    font-size:17px;
+
+    color:#f2f2f2;
+
+}
+
+.info-section{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    align-items:start;
+
+}
+
+.info-card{
+
+    padding:20px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+    text-align:center;
+
+    height:auto;
+}
+
+.info-card:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.12);
+
+}
+
+.info-card h3{
+
+    margin-bottom:10px;
+
+}
+
+.info-card p{
+
+    font-size:16px;
+
+}
+
+.feature-section{
+
+    margin-top:50px;
+
+    text-align:left;
+
+}
+
+.feature-section h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.feature-table{
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.feature-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:18px 25px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+
+}
+
+.feature-row:last-child{
+
+    border:none;
+
+}
+
+.feature-row:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.feature-row span:first-child{
+
+    font-weight:600;
+
+}
+
+.feature-row span:last-child{
+
+    opacity:.85;
+
+}
+
+/* ===========================
+   Prediction Dashboard
+=========================== */
+
+.result-card{
+
+    margin-top:40px;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    text-align:center;
+
+    animation:fadeUp .5s ease;
+
+}
+
+.result-header{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.prediction-value{
+
+    font-size:72px;
+
+    font-weight:700;
+
+    color:#90EE90;
+
+    margin:15px 0;
+
+}
+
+.prediction-label{
+
+    opacity:.8;
+
+    font-size:18px;
+
+    margin-bottom:25px;
+
+}
+
+.risk-box{
+
+    display:inline-block;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    font-size:18px;
+
+    margin-bottom:30px;
+
+}
+
+.recommendation-box{
+
+    margin-top:10px;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+    text-align:left;
+
+}
+
+.recommendation-box h3{
+
+    margin-bottom:12px;
+
+}
+
+.recommendation-box p{
+
+    line-height:1.8;
+
+    color:#eeeeee;
+
+}
+
+.button-group{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.button-group .btn{
+
+    flex:1;
+
+}
+
+.secondary-btn{
+
+    background:#1565C0;
+
+}
+
+.secondary-btn:hover{
+
+    background:#1976D2;
+
+}
+
+.reset-btn{
+
+    background:#616161;
+
+}
+
+.reset-btn:hover{
+
+    background:#757575;
+
+}
+
+@media(max-width:768px){
+
+.button-group{
+
+    flex-direction:column;
+
+}
+
+}
+button:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}

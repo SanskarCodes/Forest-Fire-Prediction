@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="hero">
+
+        <div class="glass-card">
+
+            <span class="tag">🔥 FIRE WEATHER INDEX</span>
+
+            <h1>Forest Fire Prediction</h1>
+
+            <p>
+                Enter the environmental parameters below to predict
+                the Fire Weather Index using our Machine Learning model.
+            </p>
+
+            <form id="prediction-form" action="{{ url_for('predict') }}" method="POST">
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>Temperature (°C)</label>
+                        <input id="temperature" type="number" step="any" name="Temperature" placeholder="e.g. 30" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Relative Humidity (%)</label>
+                        <input id="rh" type="number" step="any" name="RH" placeholder="e.g. 45" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Wind Speed</label>
+                        <input id="ws" type="number" step="any" name="Ws" placeholder="e.g. 15" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Rain (mm)</label>
+                        <input id="rain" type="number" step="any" name="Rain" placeholder="e.g. 0.2" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>FFMC</label>
+                        <input id="ffmc" type="number" step="any" name="FFMC" placeholder="e.g. 90" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>DMC</label>
+                        <input id="dmc" type="number" step="any" name="DMC" placeholder="e.g. 65" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>ISI</label>
+                        <input id="isi" type="number" step="any" name="ISI" placeholder="e.g. 10" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Classes</label>
+                        <input id="classes" type="number" step="any" name="Classes" placeholder="0 or 1" required>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>Region</label>
+                        <input id="region" type="number" step="any" name="Region" placeholder="0 or 1" required>
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+    <button id="predict-btn" class="btn" type="submit">
+    🔥 Predict Fire Weather Index
+</button>
+
+    <button
+        class="btn secondary-btn"
+        type="button"
+        onclick="fillExample()">
+
+        📋 Example Data
+
+    </button>
+
+    <button
+        class="btn reset-btn"
+        type="reset">
+
+        🔄 Reset
+
+    </button>
+
+</div>
+
+            </form>
+
+            {% if results %}
+
+            <div class="result-card">
+
+            <h3>Prediction Complete</h3>
+
+            <h1>{{ results }}</h1>
+
+            <span class="risk-badge">
+
+                {{ risk }}
+
+            </span>
+
+            <p class="recommendation">
+
+                {{ recommendation }}
+
+            </p>
+
+            </div>
+
+            {% endif %}
+
+            {% if error %}
+
+            <div class="error-card">
+
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+            <div class="info-section">
+            <div class="info-card">
+
+        <h3>📊 Model</h3>
+
+        <p>Ridge Regression</p>
+
+    </div>
+
+    <div class="info-card">
+
+        <h3>📁 Dataset</h3>
+
+        <p>Algerian Forest Fires Dataset</p>
+
+    </div>
+
+    <div class="info-card">
+
+        <h3>🤖 Framework</h3>
+
+        <p>Flask + Scikit-Learn</p>
+
+    </div>
+
+</div>
+        <div class="feature-section">
+
+    <h2>📖 Feature Guide</h2>
+
+    <div class="feature-table">
+
+        <div class="feature-row">
+            <span>🌡 Temperature</span>
+            <span>Air temperature (°C)</span>
+        </div>
+
+        <div class="feature-row">
+            <span>💧 Relative Humidity</span>
+            <span>Amount of moisture in air (%)</span>
+        </div>
+
+        <div class="feature-row">
+            <span>🌬 Wind Speed</span>
+            <span>Wind speed (km/h)</span>
+        </div>
+
+        <div class="feature-row">
+            <span>🌧 Rain</span>
+            <span>Rainfall (mm)</span>
+        </div>
+
+        <div class="feature-row">
+            <span>🔥 FFMC</span>
+            <span>Fine Fuel Moisture Code</span>
+        </div>
+
+        <div class="feature-row">
+            <span>🍂 DMC</span>
+            <span>Duff Moisture Code</span>
+        </div>
+
+        <div class="feature-row">
+            <span>⚡ ISI</span>
+            <span>Initial Spread Index</span>
+        </div>
+
+        <div class="feature-row">
+            <span>📍 Region</span>
+            <span>Geographical Region</span>
+        </div>
+
+        <div class="feature-row">
+            <span>🏷 Classes</span>
+            <span>Fire / No Fire Category</span>
+        </div>
+
+    </div>
+
+</div>
+        <div class="info-card">
+
+            <h3>📊 Model</h3>
+
+            <p>Ridge Regression</p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>📁 Dataset</h3>
+
+            <p>Algerian Forest Fires Dataset</p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>🤖 Framework</h3>
+
+            <p>Flask + Scikit-Learn</p>
+
+        </div>
+
+</div>
+
+        </div>
+        
+
+    </div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
