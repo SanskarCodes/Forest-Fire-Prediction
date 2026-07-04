@@ -84,7 +84,7 @@ The application is built using **Flask**, powered by **Scikit-learn**, and deplo
 - Scikit-learn
 - NumPy
 - Pandas
-- Joblib
+- Seaborn
 
 ## Backend
 
